@@ -13,6 +13,7 @@ const Selection = ({ nextBackground }) => {
     <div
       className="fix-box"
       onClick={handle}
+  id={backgroundColor}
       data-testid={backgroundColor}
       style={backgroundColor}
     >
