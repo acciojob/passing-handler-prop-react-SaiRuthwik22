@@ -1,15 +1,19 @@
 import React from 'react';
+import "../styles/App.css"
 
-const Selection = ({ applyColor, nextBackground }) => {
-  const handleClick = () => {
-    applyColor(nextBackground);
+const Selection = ({ nextBackground }) => {
+  const [backgroundColor, setBackgroundColor] = React.useState();
+
+
+  const handle= () => {
+    setBackgroundColor(nextBackground)
   };
 
   return (
     <div
-      className="selection"
-      style={{ background: nextBackground.background }}
-      onClick={handleClick}
+      className="fix-box"
+      onClick={handle}
+      style={backgroundColor}
     >
       Select me
     </div>
