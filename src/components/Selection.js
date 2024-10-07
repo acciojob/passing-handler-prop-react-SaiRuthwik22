@@ -2,7 +2,7 @@ import React from 'react';
 import "../styles/App.css"
 
 const Selection = ({ nextBackground }) => {
-  const [backgroundColor, setBackgroundColor] = React.useState();
+  const [backgroundColor, setBackgroundColor] = React.useState({background:""});
 
 
   const handle= () => {
