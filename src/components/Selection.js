@@ -13,8 +13,8 @@ const Selection = ({ nextBackground }) => {
     <div
       className="fix-box"
       onClick={()=>{handle()}}
-  id={backgroundColor}
-      style={{backgroundColor:backgroundColor}}
+      id={backgroundColor}
+      style={{backgroundColor:backgroundColor.background}}
     >
       Select me
     </div>
