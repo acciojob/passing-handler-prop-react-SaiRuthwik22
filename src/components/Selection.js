@@ -26,7 +26,7 @@ const Selection = (props) => {
       onClick={handleClick}
       data-testid={colorId}  // Add data-testid attribute
     >
-      {/* Content inside the box, if any */}
+      Selection
     </div>
   );
 }
