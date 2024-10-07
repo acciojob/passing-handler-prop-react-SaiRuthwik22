@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import '../styles/App.css';
-import Selection from './Selection.js';
-import ColourSelector from './ColourSelector.js';
-
+import Selection from './Selection';
+import ColourSelector from './ColourSelector';
+ 
 const colourConfig = [{
     key: 'blue',
     label: 'Blue',
@@ -19,33 +18,44 @@ const colourConfig = [{
     classname: 'btn-green',
     background: 'rgb(44, 209, 88)'
   }
-]
-
+];
+ 
 const title = 'Select the gradient and then the Box to change the color';
-
+ 
 const App = () => {
-  let [nextBackground, selectNextBackground] = useState({ background: "" })
-
+  const [selectedColor, setSelectedColor] = useState('');
+ 
+  const applyColor = (updateSelectionStyle) => {
+    updateSelectionStyle(selectedColor);
+  };
+ 
   return (
     <div id="master">
       <h5 className="heading">{title}</h5>
-
+ 
       <div className="row">
-        {colourConfig.map((config, index) => (
-          <ColourSelector key={config.key} config={config} selectNextBackground={selectNextBackground} />
+        {colourConfig.map((config) => (
+          <ColourSelector 
+            key={config.key} 
+            config={config} 
+            selectNextBackground={setSelectedColor} 
+          />
         ))}
       </div>
-
+ 
       <div className='row' id="children-wrapper">
         {
-          ["selection1", "selection2", "selection3"].map(key => (
-            <Selection key={key} nextBackground={nextBackground} />
+          ["blue", "orange", "green"].map(color => (
+            <Selection 
+              key={color} 
+              colorId={color}
+              applyColor={applyColor} 
+            />
           ))
         }
       </div>
     </div >
-  )
+  );
 }
-
-
+ 
 export default App;
